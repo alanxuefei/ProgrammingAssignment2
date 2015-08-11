@@ -7,7 +7,7 @@ Step 1, a 2500*2500 matrix is created for testing purpose.
 
 Step 2, the test matrix is converted to cachematrix by makeCacheMatrix(...) function 
 
- CachedMatrix=makeCacheMatrix(NormalMatrix)
+        CachedMatrix=makeCacheMatrix(NormalMatrix)
 
 Step 3, calcute the InverseMatrix by cacheSolve(...) funcation. 
         (Note* system.time(expr) funcation return CPU (and other) times that expr used,
