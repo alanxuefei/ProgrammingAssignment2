@@ -30,8 +30,10 @@ cacheSolve <- function(x, ...) {
   InverseMatrix
 }
 
-N=99
+N=2500
 NormalMatrix<-matrix(rnorm(N*N,mean=0,sd=1), N, N)
 CachedMatrix=makeCacheMatrix(NormalMatrix)
+system.time(InverseMatrixresult<-cacheSolve(CachedMatrix))
+str(InverseMatrixresult)
 system.time(cacheSolve(CachedMatrix))
-system.time(cacheSolve(CachedMatrix))
+str(InverseMatrixresult)
