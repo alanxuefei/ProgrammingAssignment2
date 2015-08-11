@@ -13,19 +13,19 @@ Step 3, calcute the InverseMatrix by cacheSolve(...) funcation.
         (Note* system.time(expr) funcation return CPU (and other) times that expr used,
                str(object, ...) compactly display the internal structure of an R object.)
 > system.time(InverseMatrixresult<-cacheSolve(CachedMatrix))
-   user  system elapsed 
-  11.41    0.03   11.44 
+>   user  system elapsed 
+>  11.41    0.03   11.44 
 > str(InverseMatrixresult)
- num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
+> num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
  
 Step 4, calcute the InverseMatrix by cacheSolve(...) funcation.
 
 > system.time(cacheSolve(CachedMatrix))
-getting cached data
-   user  system elapsed 
-      0       0       0 
+>getting cached data
+>   user  system elapsed 
+>      0       0       0 
 > str(InverseMatrixresult)
- num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
+> num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
 
 
 ### Introduction
