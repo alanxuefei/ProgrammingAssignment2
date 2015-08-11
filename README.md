@@ -1,31 +1,32 @@
 ### My Test
 
 Step 1, a 2500*2500 matrix is created for testing purpose.
-
-> N=2500
-> NormalMatrix<-matrix(rnorm(N*N,mean=0,sd=1), N, N)
+ 
+        N=2500
+        NormalMatrix<-matrix(rnorm(N*N,mean=0,sd=1), N, N)
 
 Step 2, the test matrix is converted to cachematrix by makeCacheMatrix(...) function 
 
-> CachedMatrix=makeCacheMatrix(NormalMatrix)
+ CachedMatrix=makeCacheMatrix(NormalMatrix)
 
 Step 3, calcute the InverseMatrix by cacheSolve(...) funcation. 
         (Note* system.time(expr) funcation return CPU (and other) times that expr used,
                str(object, ...) compactly display the internal structure of an R object.)
-> system.time(InverseMatrixresult<-cacheSolve(CachedMatrix))
-> user  system elapsed 
-> 11.41    0.03   11.44 
-> str(InverseMatrixresult)
-> num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
+               
+        system.time(InverseMatrixresult<-cacheSolve(CachedMatrix))
+        user  system elapsed 
+        11.41    0.03   11.44 
+        str(InverseMatrixresult)
+        num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
  
 Step 4, calcute the InverseMatrix by cacheSolve(...) funcation.
 
-> system.time(cacheSolve(CachedMatrix))
-> getting cached data
-> user  system elapsed 
->  0       0       0 
-> str(InverseMatrixresult)
-> num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
+        system.time(cacheSolve(CachedMatrix))
+        getting cached data
+        user  system elapsed 
+         0       0       0 
+        str(InverseMatrixresult)
+        num [1:2500, 1:2500] -0.04038 -0.01292 0.00775 -0.01079 -0.00602 ...
 
 
 ### Introduction
