@@ -1,8 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
+## The function create a cachematrix. CacheMatrix can generate a matrix with cache.
+## The computed inverseMatrix will be cached, therefore the inverseMatrix can be obtained directly in the next time
 
+
+## Take a matrix arguments and combine and then return a CachedMatrix.
 
 makeCacheMatrix <- function(x = matrix()) {
     InverseMatrix <- NULL
@@ -13,7 +14,8 @@ makeCacheMatrix <- function(x = matrix()) {
     )
 }
 
-## Write a short comment describing this function
+## Take a matrix, compute the inverseMatrix and store the inverserMatrix.
+
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -30,10 +32,18 @@ cacheSolve <- function(x, ...) {
   InverseMatrix
 }
 
+##the code is tested as below
+##a 2500*2500 matrix is created for testing purpose.
 N=2500
 NormalMatrix<-matrix(rnorm(N*N,mean=0,sd=1), N, N)
+
+##the test matrix is converted to cachematrix by makeCacheMatrix(...) function
 CachedMatrix=makeCacheMatrix(NormalMatrix)
+
+##calcute the InverseMatrix by cacheSolve(...) funcation. (Note* system.time(expr) funcation return CPU (and other) times that expr used, str(object, ...) compactly display the internal structure of an R object.)
 system.time(InverseMatrixresult<-cacheSolve(CachedMatrix))
 str(InverseMatrixresult)
+
+##calcute the InverseMatrix by cacheSolve(...) funcation again.
 system.time(cacheSolve(CachedMatrix))
 str(InverseMatrixresult)
